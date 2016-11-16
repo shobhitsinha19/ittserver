@@ -29,6 +29,24 @@ router.get('/profile', function(req, res, next) {
 
 });
 
+router.post('/login', function(req, res) {
+    var n = req.body.name;
+    var r = req.body.regno;
+        //regnumber = req.query.regno;
+        Profile.find({"name":n,"regno":r}).exec(function(err, docs)
+     {
+         var profileChunks = [];
+         for(var i = 0; i<docs.length; i++){         //to avoid sending data without complete extraction
+           profileChunks.push(docs.slice(i,i+1));
+         }
+         if(profileChunks.length!=0)
+          res.send("{ack:1}");
+          else {
+            res.send("{ack:0}");
+          }
+       });
+
+});
 router.post('/signup', function(req, res) {
     var Name = req.body.name,
         regnumber = req.body.regno;
