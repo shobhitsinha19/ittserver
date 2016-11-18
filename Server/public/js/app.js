@@ -10,5 +10,15 @@ app.config(function($stateProvider, $urlRouterProvider){
 			controller:"regCtrl",
 			templateUrl:"js/templates/register.html"
 		})
+		.state("login",{
+			url:'/login',
+			controller:"loginCtrl",
+			templateUrl:"js/templates/login.html"
+		})
+		.state("dash",{
+			url:"/dash",
+			controller:"dashCtrl",
+			templateUrl:"js/templates/dash.html"
+		})
 		$urlRouterProvider.otherwise('/');
 });
