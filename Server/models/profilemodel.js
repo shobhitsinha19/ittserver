@@ -2,8 +2,10 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var schema = new Schema({
-  regno: {type: Number, required: true},
-  name: {type: String, required: true}
+  fname: {type: String, required: true},
+  lname: {type: String, required: true},
+  email: {type: String, required: true},
+  pass: {type: String, required: true}
 });
 
 module.exports = mongoose.model('profile',schema);
