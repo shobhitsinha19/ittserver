@@ -31,23 +31,11 @@ app.controller("loginCtrl",['$scope','$http',function($scope, $http){
 		}) ;
 	}
 }])
-app.directive('file', function () {
-    return {
-        scope: {
-            file: '='
-        },
-        link: function (scope, el, attrs) {
-            el.bind('change', function (event) {
-                var file = event.target.files[0];
-                scope.file = file ? file : undefined;
-                scope.$apply();
-            });
-        }
-    };
-});
+
 app.controller("dashCtrl",["$scope","$http",function($scope,$http){
-	$scope.translate=function(){
-		$scope.textresult="Hello my name is Dave";
+	
+	$scope.translate=function(data){
+		$scope.textresult="data";
 		var x=$scope.textresult;
 		console.log(x);
 		var key="AIzaSyB43GXWNd_l3F3pWfjXQsFcF0eklSICKKA";
@@ -56,36 +44,6 @@ app.controller("dashCtrl",["$scope","$http",function($scope,$http){
 			console.log(res);
 		})
 	}
-	$scope.upload=function(){
-	 $http({
-            method: 'POST',
-            url: '/upload-file',
-            headers: {
-                'Content-Type': 'multipart/form-data'
-            },
-            data: {
-                email: Utils.getUserInfo().email,
-                token: Utils.getUserInfo().token,
-                upload: $scope.file
-            },
-            transformRequest: function (data, headersGetter) {
-                var formData = new FormData();
-                angular.forEach(data, function (value, key) {
-                    formData.append(key, value);
-                });
 
-                var headers = headersGetter();
-                delete headers['Content-Type'];
 
-                return formData;
-            }
-        })
-        .success(function (data) {
-
-        })
-        .error(function (data, status) {
-
-        });
-
-	}
 }])
