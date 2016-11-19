@@ -14,7 +14,6 @@ $scope.reg=function(){
 		console.log("error");
 	})
 }
-
 }])
 
 app.controller("loginCtrl",['$scope','$http',function($scope, $http){
@@ -33,15 +32,22 @@ app.controller("loginCtrl",['$scope','$http',function($scope, $http){
 }])
 
 app.controller("dashCtrl",["$scope","$http",function($scope,$http){
-	
-	$scope.translate=function(data){
-		$scope.textresult="data";
-		var x=$scope.textresult;
+	$scope.tts=function(){
+		var x=document.getElementById("original").innerHTML;
+
+		$http.get("http://api.voicerss.org/?key=64069f92869246ae96789a96803eb7e1&hl=en-us&src="+x).then(function success(res){
+		]}, then function fail(){})
+	}
+	$scope.translate=function(){
+		var lang=$scope.lang;
+		var x=document.getElementById("original").innerHTML;
 		console.log(x);
 		var key="AIzaSyB43GXWNd_l3F3pWfjXQsFcF0eklSICKKA";
-		$http.post("https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20161118T212409Z.1d6f7d973aa055f5.4072ba4c9e49d9ce53d6ec237be33c12a54ff244&text="+x+"&lang=en-ru")
+		console.log("https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20161118T212409Z.1d6f7d973aa055f5.4072ba4c9e49d9ce53d6ec237be33c12a54ff244&text="+x+"&lang=en-"+lang)
+		$http.post("https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20161118T212409Z.1d6f7d973aa055f5.4072ba4c9e49d9ce53d6ec237be33c12a54ff244&text="+x+"&lang=en-"+lang)
 		.then(function(res){
 			console.log(res);
+			document.getElementById("translated").innerHTML=res.data.text[0];
 		})
 	}
 

@@ -3,16 +3,18 @@ html
   head
     title= title
     link(rel='stylesheet', href='libs/materialize/dist/css/materialize.css')
-    link(rel='stylesheet', href='/stylesheets/style.css') 
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(href="https://fonts.googleapis.com/icon?family=Material+Icons", rel="stylesheet")
 
-  body   
-    
+  body
+
     block content
-    script(src="https://code.jquery.com/jquery-2.1.1.min.js")   
+    script(src="https://code.jquery.com/jquery-2.1.1.min.js")
+    script(src="/libs/materialize/dist/js/materialize.min.js")
     script(src="/libs/angular/angular.js")
-    script(src="/libs/angular-ui-router/release/angular-ui-router.js")       
+    script(src="/libs/angular-ui-router/release/angular-ui-router.js")
     script(src="/js/app.js")
     script(src="/js/controllers/MainController.js")
+
     script(src="/js/factories/data-factory.js")
     script(src="http://kjur.github.io/jsrsasign/jsrsasign-latest-all-min.js")
-    
