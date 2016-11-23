@@ -1,6 +1,7 @@
 <html>
   <head>
     <title>Dash</title>
+    <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
   </head>
   <body>
   <div class="row">
@@ -8,8 +9,7 @@
       <div class="nav-wrapper container">
         <a id="logo-container" href="#" class="brand-logo white-text">Chirper</a>
         <ul class="right hide-on-med-and-down">
-          <li><a href="#" class="white-text">Navbar Link</a></li>
-          <li><a href="#" class="white-text">Navbar Link</a></li>
+          <li><a href="#/home" class="white-text">Logout</a></li>
         </ul>
         <ul id="nav-mobile" class="side-nav">
           <li><a href="#">Navbar Link</a></li>
@@ -73,18 +73,24 @@
        <div class="col s12 m6">
          <div class="card blue-grey darken-1">
            <div class="card-content white-text">
-             <span class="card-title">Translated Text</span>
+             <span class="card-title">Translated Text</span >
              <p id="translated" ng-model="translated"></p>
            </div>
          </div>
        </div>
      </div>
    </div>
-     <button class="btn waves-effect waves-light" name="audio" ng-click="tts();">Play</button>
+     <button class="btn waves-effect waves-light" name="audio" onclick="tts();">Play</button>
      </div>
     </div>
-  </body>
 
+  </body>
+  <script>
+  function tts(){
+    console.log("Attempting to say: "+document.getElementById("translated").innerHTML)
+    responsiveVoice.speak(document.getElementById("translated").innerHTML);
+  }
+  </script>
   <script>
   // function change()
   //   {
@@ -118,7 +124,7 @@
           var formData = new FormData($(this)[0]);
 
           $.ajax({
-              url: "http://1.186.12.250:5000",
+              url: "http://192.168.43.134:5000",
               type: "POST",
               data: formData,
               async: false,

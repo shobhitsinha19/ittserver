@@ -3,6 +3,7 @@ app.config(function($stateProvider, $urlRouterProvider){
 	$stateProvider
 		.state("home",{
 			url:'/',
+			controller:"homeCtrl",
 			templateUrl:"js/templates/landing/index.html",
 					})
 		.state("register",{

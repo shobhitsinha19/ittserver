@@ -1,4 +1,16 @@
-app.controller("regCtrl",['$scope', '$http',function($scope,$http){
+app.controller("homeCtrl",["$scope","$http","$location","$anchorScroll",function($scope,$http,$location,$anchorScroll){
+	$scope.scrollTo = function(id) {
+		console.log(id);
+		 $location.hash(id);
+		 $anchorScroll();
+	}
+	$(document).ready(function(){
+    $('.parallax').parallax();
+});
+}]);
+
+
+app.controller("regCtrl",['$scope', '$http',"$state",function($scope,$http,$state){
 $scope.reg=function(){
 	var data=({
 		fname: $scope.firstName,
@@ -10,13 +22,14 @@ $scope.reg=function(){
 		console.log("IN");
 		console.log(data);
 		console.log(res);
+		$state.go("home");
 	},function failure(res){
 		console.log("error");
 	})
 }
 }])
 
-app.controller("loginCtrl",['$scope','$http',function($scope, $http){
+app.controller("loginCtrl",['$scope','$http',"$state",function($scope, $http,$state){
 	$scope.login=function(){
 		var data=({
 			email:$scope.email,
@@ -25,19 +38,21 @@ app.controller("loginCtrl",['$scope','$http',function($scope, $http){
 		$http.post('http://localhost:3000/login',data).then(function success(res){
 			console.log("IN");
 			console.log(res);
+			$state.go("dash")
 		},function failure(res){
 			console.log("error");
+			$scope.er="Invalid";
 		}) ;
 	}
 }])
 
 app.controller("dashCtrl",["$scope","$http",function($scope,$http){
-	$scope.tts=function(){
+/*	$scope.tts=function(){
 		var x=document.getElementById("original").innerHTML;
 
 		$http.get("http://api.voicerss.org/?key=64069f92869246ae96789a96803eb7e1&hl=en-us&src="+x).then(function success(res){
 		]}, then function fail(){})
-	}
+	}*/
 	$scope.translate=function(){
 		var lang=$scope.lang;
 		var x=document.getElementById("original").innerHTML;

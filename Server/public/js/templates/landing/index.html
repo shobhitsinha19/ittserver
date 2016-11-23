@@ -7,17 +7,18 @@
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="js/templates/landing/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="js/templates/landing/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
 </head>
 <body>
 
   <nav class="black" role="navigation">
     <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo white-text">Logo</a>
+      <a id="logo-container" href="#" class="brand-logo white-text">Chirper</a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="#" class="white-text">Navbar Link</a></li>
-        <li><a href="#" class="white-text">Navbar Link</a></li>
+        <li><a ng-click="scrollTo('bio')" class="white-text">About</a></li>
+        <li><a ng-click="scrollTo('contact')" class="white-text">Contact Us</a></li>
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
@@ -41,7 +42,6 @@
         </div>
         <div class="row center">
           <a href="/#/register" id="download-button" class="btn-large waves-effect waves-light cyan">New? Register</a>
-
           <a href="/#/login" id="download-button" class="btn-large waves-effect waves-light black">Login</a>
 
         </div>
@@ -49,7 +49,7 @@
 
       </div>
     </div>
-    <div class="parallax"><img src="bg1.jpg" alt="Unsplashed background img 1"></div>
+    <div class="parallax"><img src="images/bg4.jpg" alt="Unsplashed background img 1"></div>
   </div>
 
 
@@ -107,7 +107,7 @@
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="bg2.jpg" alt="Unsplashed background img 2"></div>
+    <div class="parallax"><img src="images/bg1.jpg" alt="Unsplashed background img 2"></div>
   </div>
 
   <div class="container">
@@ -116,7 +116,10 @@
       <div class="row">
         <div class="col s12 center">
           <h3><i class="mdi-content-send brown-text"></i></h3>
+          <div id="contact"></div>
+          <div class="row center">
           <h4 class="black-text darken-1">Contact Us</h4>
+        </div>
           <p class="center-align light">divyansh.deora55@gmail.com</p>
           <p class="center-align light">sinhasinha@gmail.com</p>
         </div>
@@ -134,23 +137,18 @@
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="bg4.jpg" alt="Unsplashed background img 3"></div>
+    <div class="parallax"><img src="images/bg2.jpg" alt="Unsplashed background img 3"></div>
   </div>
 
   <footer class="page-footer cyan">
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
+          <div id="bio"></div>
           <h5 class="white-text">Bio</h5>
           <p class="grey-text text-lighten-4">We are two Information Technology students from Manipal Institute of Technology, Manipal. This web application and the complementary API were built with open source resources for our Internet Tools and Technology project. We hope you liked it!</p>
         </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Settings</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-          </ul>
-        </div>
+    
         <div class="col l3 s12">
           <h5 class="white-text">Connect</h5>
           <ul>
@@ -170,9 +168,16 @@
 
 
   <!--  Scripts-->
+
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
+  <script src="js/templates/landing/js/materialize.js"></script>
+  <script src="js/templates/landing/js/init.js"></script>
+
+  <script>
+
+      $(document).ready(function(){ $('.parallax').parallax(); });
+
+</script>
 
   </body>
 </html>

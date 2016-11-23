@@ -14,7 +14,13 @@ nav .brand-logo {
 p {
   line-height: 2rem;
 }
-
+.parallax img
+{
+  display:block !important;
+}
+.parallax{
+  background: #FFFFFF;
+}
 .button-collapse {
   color: #26a69a;
 }
@@ -22,6 +28,7 @@ p {
 .parallax{
   color:rgba(0,0,0,.5);
 }
+
 .parallax-container {
   min-height: 380px;
   line-height: 0;
